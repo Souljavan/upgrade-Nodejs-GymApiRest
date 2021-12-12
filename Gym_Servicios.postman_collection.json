@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "221aa040-59b3-4794-a1ee-e22745d89b9b",
+		"name": "Gym_Servicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Leer todos los clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/clientes/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leer un cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/clientes/61b67fb5ca038f537a4690e0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes",
+						"61b67fb5ca038f537a4690e0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"test\",\n    \"apellidos\":\"test\",\n    \"DNI\":\"50111331111E\",\n    \"FechaAlta\":\"10/12/2020\",\n    \"Estado\":\"Activo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar cliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"test2\",\n    \"apellidos\":\"test2\",\n    \"DNI\":\"50111331111E\",\n    \"FechaAlta\":\"10/12/2020\",\n    \"Estado\":\"Activo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/clientes/61b67fb5ca038f537a4690e0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes",
+						"61b67fb5ca038f537a4690e0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/clientes/61b67fb5ca038f537a4690e0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes",
+						"61b67fb5ca038f537a4690e0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leer todos los instructores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/instructores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"instructores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leer un instructor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/instructores/61b6820da847377fdd4155d8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"instructores",
+						"61b6820da847377fdd4155d8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Instructor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Alex\",\n    \"apellidos\":\"Cremento\",\n    \"Clase\":\"BodyPump\",\n    \"FechaAlta\":\"01/02/2021\",\n    \"Estado\":\"Activo\",\n    \"Salario\":950\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/instructores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"instructores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Instructor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Alex\",\n    \"apellidos\":\"Cremento\",\n    \"Clase\":\"BodyPump\",\n    \"FechaAlta\":\"01/02/2021\",\n    \"Estado\":\"Activo\",\n    \"Salario\":960\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/instructores/61b6820da847377fdd4155d8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"instructores",
+						"61b6820da847377fdd4155d8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Instructor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/instructores/61b6820da847377fdd4155d8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"instructores",
+						"61b6820da847377fdd4155d8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leer todos los gimnasios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/gimnasio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gimnasio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leer un gimnasio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/gimnasio/61b68510de4d23ce717a075b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gimnasio",
+						"61b68510de4d23ce717a075b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Gimnasio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Gimnasio Spargym\",\n    \"direccion\":\"Calle Granvia numero 6\",\n    \"localidad\":\"Albacete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gimnasio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gimnasio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Gimnasio",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Gimnasio Spargym\",\n    \"direccion\":\"Calle Granvia numero 7\",\n    \"localidad\":\"Albacete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gimnasio/61b6854ade4d23ce717a075f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gimnasio",
+						"61b6854ade4d23ce717a075f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Gimnasio",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/gimnasio/61b685e6de4d23ce717a0765",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gimnasio",
+						"61b685e6de4d23ce717a0765"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir Instructor a gimnasio",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"instructor_id\":\"61b68252a847377fdd4155da\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gimnasio/61b68510de4d23ce717a075b/instructores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gimnasio",
+						"61b68510de4d23ce717a075b",
+						"instructores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir cliente a gimnasio",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cliente_id\":\"61b680bd49b6d9c61d42e036\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/gimnasio/61b6854ade4d23ce717a075f/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gimnasio",
+						"61b6854ade4d23ce717a075f",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
