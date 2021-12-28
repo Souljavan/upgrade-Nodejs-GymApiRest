@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const instructores = require('../model/instructores');
+const authorize = require("../middlewares/auth");
 
 
-router.get('/', (req, res,next) => {
+router.route('/').get(authorize, (req, res, next) => {
     instructores.find()
         .then((instructor) => {
             if (instructor=="") {
@@ -17,7 +18,7 @@ router.get('/', (req, res,next) => {
 });
 
 
-router.get('/:id', (req, res ,next) => {
+router.route('/:id').get(authorize, (req, res, next) => {
     const id = req.params.id;
     instructores.findById(id)
         .then(instructor => {
@@ -32,7 +33,7 @@ router.get('/:id', (req, res ,next) => {
 });
 
 
-router.post('/', (req,res,next)=>{
+router.route('/').post(authorize, (req, res, next) => {
 
     const newinstructor = new instructores({
         nombre: req.body.nombre,
@@ -52,7 +53,7 @@ router.post('/', (req,res,next)=>{
 
 })
 
-router.put('/:id', (req,res,next)=>{
+router.route('/:id').put(authorize, (req, res, next) => {
 
     const instructorid = req.params.id;
     const instructormodificar = new instructores(req.body);
@@ -67,7 +68,7 @@ router.put('/:id', (req,res,next)=>{
 
 })
 
-router.delete('/:id', (req, res, next) => {
+router.route('/:id').delete(authorize, (req, res, next) => {
     const instructorid = req.params.id;
     instructores.findByIdAndDelete(instructorid)
         .then(() => {
@@ -82,6 +83,4 @@ router.delete('/:id', (req, res, next) => {
 
 
 
-module.exports = {
-    router: router
-}
+module.exports = router;

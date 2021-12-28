@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const Gimnasio = require('../model/gimnasio');
+const authorize = require("../middlewares/auth");
 
 
-router.get('/', (req, res,next) => {
+router.route('/').get(authorize, (req, res, next) => {
     Gimnasio.find()
         .then((gimnasio) => {
             if (gimnasio=="") {
@@ -17,7 +18,7 @@ router.get('/', (req, res,next) => {
 });
 
 
-router.get('/:id', (req, res ,next) => {
+router.route('/:id').get(authorize, (req, res, next) => {
     const id = req.params.id;
     Gimnasio.findById(id)
         .then(gimnasio => {
@@ -32,7 +33,7 @@ router.get('/:id', (req, res ,next) => {
 });
 
 
-router.post('/', (req,res,next)=>{
+router.route('/').post(authorize, (req, res, next) => {
 
     const newGimnasio = new Gimnasio({
         nombre: req.body.nombre,
@@ -51,7 +52,7 @@ router.post('/', (req,res,next)=>{
 
 })
 
-router.put('/:id', (req,res,next)=>{
+router.route('/:id').put(authorize, (req, res, next) => {
 
     const gimnasioid = req.params.id;
     const gimnasiomodificar = new Gimnasio(req.body);
@@ -67,7 +68,7 @@ router.put('/:id', (req,res,next)=>{
 })
 
 //Añade instructores a gimnasios
-router.put('/:id/instructores', (req,res,next)=>{
+router.route('/:id/instructores').put(authorize, (req, res, next) => {
 
     const gimnasioid = req.params.id;
     const instructorid = req.body.instructor_id;
@@ -88,7 +89,7 @@ router.put('/:id/instructores', (req,res,next)=>{
 
 
 //Añade clientes a gimnasios
-router.put('/:id/clientes', (req,res,next)=>{
+router.route('/:id/clientes').put(authorize, (req, res, next) => {
 
     const gimnasioid = req.params.id;
     const clienteid = req.body.cliente_id;
@@ -107,7 +108,7 @@ router.put('/:id/clientes', (req,res,next)=>{
 
 })
 
-router.delete('/:id', (req, res, next) => {
+router.route('/:id/').delete(authorize, (req, res, next) => {
     const gimnasioid = req.params.id;
     Gimnasio.findByIdAndDelete(gimnasioid)
         .then(() => {
@@ -122,6 +123,4 @@ router.delete('/:id', (req, res, next) => {
 
 
 
-module.exports = {
-    router: router
-}
+module.exports = router;

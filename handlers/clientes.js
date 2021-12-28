@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const clientes = require('../model/clientes');
+const authorize = require("../middlewares/auth");
 
 
-router.get('/', (req, res,next) => {
+router.route('/').get(authorize, (req, res, next) => {
     clientes.find()
         .then((cliente) => {
             if (cliente=="") {
@@ -17,7 +18,7 @@ router.get('/', (req, res,next) => {
 });
 
 
-router.get('/:id', (req, res ,next) => {
+router.route('/:id').get(authorize, (req, res, next) => {
     const id = req.params.id;
     clientes.findById(id)
         .then(cliente => {
@@ -31,8 +32,7 @@ router.get('/:id', (req, res ,next) => {
         })
 });
 
-
-router.post('/', (req,res,next)=>{
+router.route('/').post(authorize, (req, res, next) => {
 
     const newCliente = new clientes({
         nombre: req.body.nombre,
@@ -51,7 +51,7 @@ router.post('/', (req,res,next)=>{
 
 })
 
-router.put('/:id', (req,res,next)=>{
+router.route('/:id').put(authorize, (req, res, next) => {
 
     const clientid = req.params.id;
     const clientemodificar = new clientes(req.body);
@@ -66,7 +66,7 @@ router.put('/:id', (req,res,next)=>{
 
 })
 
-router.delete('/:id', (req, res, next) => {
+router.route('/:id').delete(authorize, (req, res, next) => {
     const clienteid = req.params.id;
     clientes.findByIdAndDelete(clienteid)
         .then(() => {
@@ -81,6 +81,4 @@ router.delete('/:id', (req, res, next) => {
 
 
 
-module.exports = {
-    router: router
-}
+module.exports = router;
