@@ -1,6 +1,5 @@
 const express = require('express')
 var server = express();
-//const PORT = 3000;
 
 require('./db/db');
 
@@ -23,6 +22,6 @@ server.use('*', (req, res, next) => {
   });
   
   
-  server.listen(PORT, () => {
+  server.listen(process.env.PORT || 3000, () => {
       console.log(`Servidor arrancado en el puerto: ${PORT}`);
     });
