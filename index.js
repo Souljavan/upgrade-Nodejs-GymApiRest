@@ -23,5 +23,5 @@ server.use('*', (req, res, next) => {
   
   
   server.listen(process.env.PORT || 3000, () => {
-      console.log(`Servidor arrancado en el puerto: ${PORT}`);
+      console.log(`Servidor arrancado`);
     });
