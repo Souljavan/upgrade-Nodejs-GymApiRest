@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cors());
+app.use('/static', express.static(__dirname + '/public'));
 
 
 //Rutas
@@ -27,7 +28,7 @@ app.use('/gimnasio', gimnasio)
 app.use('/instructores', instructores)
 app.use('/clientes', clientes)
 
-app.use(express.static('public'));
+
 
   
 app.listen(process.env.PORT || 3000, () => {
