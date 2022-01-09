@@ -27,7 +27,7 @@ app.use('/gimnasio', gimnasio)
 app.use('/instructores', instructores)
 app.use('/clientes', clientes)
 
-
+app.use(express.static('public'));
 
   
 app.listen(process.env.PORT || 3000, () => {

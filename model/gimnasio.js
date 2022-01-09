@@ -7,6 +7,7 @@ const GimnasioSchema = new Schema(
       nombre: { type: String, required: true },
       direccion: { type: String, required: true },
       localidad: { type: String, required: true},
+      imagen: { type: String, required: true},
       instructores: [{ type: mongoose.Types.ObjectId, ref: 'instructores' }],
       clientes: [{ type: mongoose.Types.ObjectId, ref: 'clientes' }]
     },

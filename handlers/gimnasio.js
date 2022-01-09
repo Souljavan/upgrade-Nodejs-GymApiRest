@@ -39,6 +39,7 @@ router.route('/').post(authorize, (req, res, next) => {
         nombre: req.body.nombre,
         direccion: req.body.direccion,
         localidad: req.body.localidad,
+        imagen:req.body.imagen,
         instructores:req.body.FechaAlta|| [],
         clientes:req.body.Estado|| []
     });
